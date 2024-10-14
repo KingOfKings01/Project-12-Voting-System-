@@ -31,18 +31,6 @@
     font-weight: bold;
   }
 
-  .prod {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .cursive {
-    font-style: italic;
-  }
-
-  .center{
-    text-align: center;
-  }
 
   .actions{
     display: flex;
