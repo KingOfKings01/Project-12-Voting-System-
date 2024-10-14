@@ -1,9 +1,11 @@
 // import styles from "./monitorList.module.css"
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import StudentsList from "../StudentsList/StudentsList";
-export default function MonitorList({monitors}) {
+import { dataContext } from "../../store/contexts";
+export default function MonitorList() {
 
+  const { monitors } = useContext(dataContext)
 
   return (
     <div>
@@ -13,7 +15,7 @@ export default function MonitorList({monitors}) {
         <div key={index}>
           <h4>{monitor.name}</h4>
           <p>Votes: {monitor.vote}</p>
-          <StudentsList studentsList={monitors[index].studentsList}/>
+          <StudentsList studentsList={monitor.studentsList} monitorId={monitor.id}/>
         </div>
       ))}
 

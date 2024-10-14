@@ -1,12 +1,18 @@
+import { useContext } from 'react';
 import styles from './modal.module.css'
+import { dataContext } from '../../store/contexts';
 
-export default function ModalForm({ monitors, setIsModalOpen }) {
+export default function ModalForm({ setIsModalOpen }) {
+
+    const { monitors, addStudentsVote } = useContext(dataContext)
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("form submission");
-        const {studentName, mentor } = e.target
+        const { studentName, mentorId } = e.target
 
-        console.log("student name", studentName.value,"mentor name", mentor.value);
+        // console.log("student name", studentName.value, "mentor id", mentorId.value);
+        addStudentsVote(mentorId.value, studentName.value)
 
         setIsModalOpen(false);
     }
@@ -17,11 +23,11 @@ export default function ModalForm({ monitors, setIsModalOpen }) {
                     Student Name: &nbsp;&nbsp;
                     <input type="text" id="studentName" name="studentName" required />
                 </label>
-                <label htmlFor="">
+                <label htmlFor="mentorId">
                     Choose Mentor: &nbsp;&nbsp;
-                    <select id="mentor" name="mentor">
+                    <select id="mentorId" name="mentorId">
                         {monitors.map((monitor) => (
-                            <option key={monitor.id} value={monitor.name}>{monitor.name}</option>
+                            <option key={monitor.id} value={monitor.id}>{monitor.name}</option>
                         ))}
                     </select>
                 </label>

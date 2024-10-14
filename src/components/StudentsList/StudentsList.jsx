@@ -1,16 +1,20 @@
+import { useContext } from "react";
+import { dataContext } from "../../store/contexts";
 
-export default function StudentsList({ studentsList }) {
-    
+export default function StudentsList({ studentsList, monitorId }) {
+    const { deleteStudentsVote } = useContext(dataContext)
+    // console.log(getStudentsWithMentorId());
+
     return (
         <div>
             <ul>
                 {studentsList.map((student, index) => (
                     <li key={index}>
                         <span>
-                            {student.name}
+                            {student}
                         </span>
                         &nbsp;
-                        <button>Delete</button>
+                        <button onClick={()=> deleteStudentsVote(monitorId)}>Delete</button>
                     </li>
                 ))}
             </ul>
