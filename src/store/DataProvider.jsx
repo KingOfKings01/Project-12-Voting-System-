@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { dataContext } from "./contexts";
+import PropTypes from "prop-types";
 
 const DataProvider = ({ children }) => {
   const [monitors, setMonitors] = useState([
@@ -30,10 +31,10 @@ const DataProvider = ({ children }) => {
       prevMonitors.map(monitor =>
         monitor.id === monitorId
           ? {
-              ...monitor,
-              vote: monitor.vote + 1,
-              studentsList: [...monitor.studentsList, newStudent.id],
-            }
+            ...monitor,
+            vote: monitor.vote + 1,
+            studentsList: [...monitor.studentsList, newStudent.id],
+          }
           : monitor
       )
     );
@@ -50,15 +51,15 @@ const DataProvider = ({ children }) => {
       prevMonitors.map(monitor =>
         monitor.id === monitorId
           ? {
-              ...monitor,
-              vote: monitor.vote > 0 ? monitor.vote - 1 : 0,
-              studentsList: monitor.studentsList.filter(id => id !== studentId),
-            }
+            ...monitor,
+            vote: monitor.vote > 0 ? monitor.vote - 1 : 0, //Todo: To prevent -0
+            studentsList: monitor.studentsList.filter(id => id !== studentId),
+          }
           : monitor
       )
     );
 
-    setTotalVotes(prev => (prev > 0 ? prev - 1 : 0));
+    setTotalVotes(prev => (prev > 0 ? prev - 1 : 0)); //Todo: To prevent -0
   };
 
   return (
@@ -69,5 +70,14 @@ const DataProvider = ({ children }) => {
     </dataContext.Provider>
   );
 };
+
+DataProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  //todo:   OR
+  // children: {
+  //   type: PropTypes.node,
+  //   required: true,
+  // },
+}
 
 export default DataProvider;

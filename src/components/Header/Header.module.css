@@ -1,3 +1,37 @@
-.centered{
+.centered {
   text-align: center;
+  
+  .card {
+    width: 30vw;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: transform 0.3s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+
+  .add {
+    font-size: medium;
+    background-color: #f2f2f2;
+    color: #277708;
+    border: 1px solid #277708;
+  }
+
+  .add:hover {
+    background-color: #277708;
+    color: #f2f2f2;
+  }
 }

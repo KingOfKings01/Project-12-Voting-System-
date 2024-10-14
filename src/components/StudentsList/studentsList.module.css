@@ -1,0 +1,36 @@
+.list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    
+    .listContent{
+        padding-right: 50px;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .sameBold{
+            font-weight: 500;
+        }
+    }
+
+  .delete {
+    font-size: medium;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #771f08;
+    border: 1px solid #771f08;
+    transition-duration: 0.5s;
+  }
+
+  .delete:hover {
+    background-color: #771f08;
+    color: #fff;
+  }
+}

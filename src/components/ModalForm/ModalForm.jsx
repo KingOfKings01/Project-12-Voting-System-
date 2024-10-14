@@ -1,5 +1,6 @@
-import { useContext } from 'react';
+import PropTypes from 'prop-types'
 import styles from './modal.module.css';
+import { useContext } from 'react';
 import { dataContext } from '../../store/contexts';
 
 export default function ModalForm({ setIsModalOpen }) {
@@ -14,11 +15,14 @@ export default function ModalForm({ setIsModalOpen }) {
 
   return (
     <div className={styles.background}>
+
       <form onSubmit={handleSubmit} className={styles.modal}>
+
         <label htmlFor="studentName">
           Student Name: &nbsp;&nbsp;
           <input type="text" id="studentName" name="studentName" required />
         </label>
+
         <label htmlFor="mentorId">
           Choose Mentor: &nbsp;&nbsp;
           <select id="mentorId" name="mentorId" required>
@@ -29,11 +33,18 @@ export default function ModalForm({ setIsModalOpen }) {
             ))}
           </select>
         </label>
+
         <div className={styles.actions}>
           <button type="submit">Submit</button>
           <button type="button" onClick={() => setIsModalOpen(false)}>X</button>
         </div>
+
       </form>
+
     </div>
   );
+}
+
+ModalForm.propTypes = {
+    setIsModalOpen: PropTypes.func.isRequired
 }

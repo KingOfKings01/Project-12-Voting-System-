@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import ModalForm from "../ModalForm/ModalForm";
-import styles from "./Header.module.css";
+import styles from "./header.module.css";
 import { dataContext } from "../../store/contexts";
-// import { useContext } from "react";
-// import CartContext from "../../store/cart-context";
 
 export default function Header() {
   const { totalVotes } = useContext(dataContext)
@@ -11,11 +9,14 @@ export default function Header() {
 
   return (
     <div className={styles.centered}>
-      <h2>Class Monitor Vote</h2>
-      <p>Total Vote: {totalVotes}</p>
-      <button onClick={()=>setIsModalOpen(true)}>Add new vote</button>
+      <div className={styles.card}>
+        
+        <h2>Class Monitor Vote</h2>
+        <p>Total Vote: {totalVotes}</p>
+        <button className={styles.add} onClick={() => setIsModalOpen(true)}>Add new vote</button>
 
-      {isModalOpen && <ModalForm setIsModalOpen={setIsModalOpen}/>}
+        {isModalOpen && <ModalForm setIsModalOpen={setIsModalOpen} />}
+      </div>
     </div>
   );
 }
