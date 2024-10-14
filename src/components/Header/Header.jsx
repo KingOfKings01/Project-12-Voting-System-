@@ -5,7 +5,7 @@ import { dataContext } from "../../store/contexts";
 // import { useContext } from "react";
 // import CartContext from "../../store/cart-context";
 
-export default function Header({monitors}) {
+export default function Header() {
   const { totalVotes } = useContext(dataContext)
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,7 +15,7 @@ export default function Header({monitors}) {
       <p>Total Vote: {totalVotes}</p>
       <button onClick={()=>setIsModalOpen(true)}>Add new vote</button>
 
-      {isModalOpen && <ModalForm monitors={monitors} setIsModalOpen={setIsModalOpen}/>}
+      {isModalOpen && <ModalForm setIsModalOpen={setIsModalOpen}/>}
     </div>
   );
 }
