@@ -11,7 +11,6 @@ export default function ModalForm({ setIsModalOpen }) {
         console.log("form submission");
         const { studentName, mentorId } = e.target
 
-        // console.log("student name", studentName.value, "mentor id", mentorId.value);
         addStudentsVote(mentorId.value, studentName.value)
 
         setIsModalOpen(false);
@@ -35,7 +34,6 @@ export default function ModalForm({ setIsModalOpen }) {
                 <div className={styles.actions}>
                     <button type="submit">Submit</button>
                     <button onClick={() => setIsModalOpen(false)}>X</button>
-
                 </div>
             </form>
         </div>

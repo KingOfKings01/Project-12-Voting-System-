@@ -8,25 +8,7 @@ const DataProvider = ({ children }) => {
     { id: 3, name: "Abhik", vote: 1, studentsList: ["Ron"] },
   ]);
 
-  const increaseVote = (id) => {
-    setMonitors((prevMonitors) =>
-      prevMonitors.map((monitor) =>
-        monitor.id === id
-          ? { ...monitor, vote: monitor.vote + 1 }
-          : monitor
-      )
-    );
-  };
-
-  const decreaseVote = (id) => {
-    setMonitors((prevMonitors) =>
-      prevMonitors.map((monitor) =>
-        monitor.id === id
-          ? { ...monitor, vote: monitor.vote - 1 }
-          : monitor
-      )
-    );
-  };
+  const [totalVotes, setTotalVotes] = useState(4);
 
   const addStudentsVote = (monitorId, studentName) => {
     setMonitors((prevMonitors) =>
@@ -41,7 +23,8 @@ const DataProvider = ({ children }) => {
       )
     );
 
-    // console.log("Adding students...", monitorId, studentName);
+    setTotalVotes(prev => prev+1)
+    console.log("Adding students...", monitorId, studentName);
   };
 
   const deleteStudentsVote = (monitorId, studentName) => {
@@ -58,12 +41,14 @@ const DataProvider = ({ children }) => {
           : monitor
       )
     );
+
+    setTotalVotes(prev => +(prev-1))
   };
 
 
 
   return (
-    <dataContext.Provider value={{ monitors, increaseVote, decreaseVote, addStudentsVote, deleteStudentsVote }}>
+    <dataContext.Provider value={{ monitors, totalVotes, addStudentsVote, deleteStudentsVote }}>
       {children}
     </dataContext.Provider>
   );
