@@ -34,4 +34,12 @@
     background-color: #277708;
     color: #f2f2f2;
   }
+  
+  @media (width <= 700px){
+    .card {
+      width: 80vw;
+    }
+  }
 }
+/* @media (min-width: 768px) {
+} */

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const DataProvider = ({ children }) => {
   const [monitors, setMonitors] = useState([
     { id: 1, name: "Suresh", vote: 2, studentsList: [1, 2] },
-    { id: 2, name: "Deepank", vote: 1, studentsList: [3] },
+    { id: 2, name: "Deepak", vote: 1, studentsList: [3] },
     { id: 3, name: "Abhik", vote: 1, studentsList: [4] },
   ]);
 

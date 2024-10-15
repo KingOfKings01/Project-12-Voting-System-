@@ -15,16 +15,19 @@ export default function ModalForm({ setIsModalOpen }) {
 
   return (
     <div className={styles.background}>
-
       <form onSubmit={handleSubmit} className={styles.modal}>
 
+        <h2>Add New Vote</h2>
+
         <label htmlFor="studentName">
-          Student Name: &nbsp;&nbsp;
-          <input type="text" id="studentName" name="studentName" required />
+          Student Name:
+          &nbsp;&nbsp;
+          <input type="text" id="studentName" name="studentName" placeholder='Name' required />
         </label>
 
         <label htmlFor="mentorId">
-          Choose Mentor: &nbsp;&nbsp;
+          Choose Mentor:
+          &nbsp;&nbsp;
           <select id="mentorId" name="mentorId" required>
             {monitors.map((monitor) => (
               <option key={monitor.id} value={monitor.id}>
@@ -35,8 +38,8 @@ export default function ModalForm({ setIsModalOpen }) {
         </label>
 
         <div className={styles.actions}>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={() => setIsModalOpen(false)}>X</button>
+          <button className={styles.submit} type="submit">Submit</button>
+          <button className={styles.cancel} type="button" onClick={() => setIsModalOpen(false)}>Cancel</button>
         </div>
 
       </form>
@@ -46,5 +49,5 @@ export default function ModalForm({ setIsModalOpen }) {
 }
 
 ModalForm.propTypes = {
-    setIsModalOpen: PropTypes.func.isRequired
+  setIsModalOpen: PropTypes.func.isRequired
 }

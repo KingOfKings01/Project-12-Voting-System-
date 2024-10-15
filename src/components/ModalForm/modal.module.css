@@ -10,7 +10,7 @@
 
 .modal {
   position: fixed;
-  top: 30%;
+  top: 40%;
   left: 50%;
   
   transform: translate(-50%, -50%);
@@ -34,8 +34,31 @@
   input, select{
     padding: 5px 10px;
     font-size: medium;
+    width: 200px;
+    border: 1px solid #ccc;
   }
   
+  .submit{
+    background-color: #fff;
+    color: #277708;
+    border: 1px solid #277708;
+  }
+
+  .submit:hover{
+    background-color: #277708;
+    color: #fff;  
+  }
+  .cancel{
+    background-color: #fff;
+    color: #771f08;
+    border: 1px solid #771f08;
+  }
+
+  .cancel:hover{
+    background-color: #771f08;
+    color: #fff;  
+  }
+
   .actions{
     display: flex;
     gap: 10px;
@@ -46,16 +69,9 @@
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
-      background-color: #fff;
-      color: #771f08;
-      border: 1px solid #771f08;
       transition-duration: 0.5s;
     }
     
-    button:hover{
-      background-color: #771f08;
-      color: #fff;  
-    }
   }
 
   .totalAmount {
@@ -68,4 +84,11 @@
     gap: 10px;
     justify-content: flex-end;
   }
+}
+
+
+@media (width <= 700px){
+  .modal {
+    width: 80vw;
+  } 
 }

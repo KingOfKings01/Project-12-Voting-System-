@@ -12,7 +12,7 @@ export default function Header() {
       <div className={styles.card}>
         
         <h2>Class Monitor Vote</h2>
-        <p>Total Vote: {totalVotes}</p>
+        <p>Total {totalVotes} Vote{totalVotes > 1 && "s"}</p>
         <button className={styles.add} onClick={() => setIsModalOpen(true)}>Add new vote</button>
 
         {isModalOpen && <ModalForm setIsModalOpen={setIsModalOpen} />}

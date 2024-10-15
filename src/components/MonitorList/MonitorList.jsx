@@ -14,7 +14,7 @@ export default function MonitorList() {
           <div key={index}>
             <div className={styles.heading}>
               <h4 className={styles.cursive}>{monitor.name}</h4>
-              <p>Votes: {monitor.vote}</p>
+              <p>{monitor.vote} Vote{monitor.vote > 1 && "s"}</p>
             </div>
 
             <StudentsList monitorId={monitor.id} studentsList={monitor.studentsList} />
