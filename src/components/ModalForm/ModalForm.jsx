@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styles from './modal.module.css';
+import styles from './modalForm.module.css';
 import { useContext } from 'react';
 import { dataContext } from '../../store/contexts';
 
@@ -39,7 +39,7 @@ export default function ModalForm({ setIsModalOpen }) {
 
         <div className={styles.actions}>
           <button className={styles.submit} type="submit">Submit</button>
-          <button className={styles.cancel} type="button" onClick={() => setIsModalOpen(false)}>Cancel</button>
+          <button className={styles.cancel} type="button" onClick={()=>setIsModalOpen(false)}>Cancel</button>
         </div>
 
       </form>

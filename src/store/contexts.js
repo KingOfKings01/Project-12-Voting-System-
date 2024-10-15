@@ -1,6 +1,12 @@
-import {createContext} from "react"
+import { createContext } from "react";
 
 export const dataContext = createContext({
-    monitors: [],
-    totalVotes: 0, 
-})
+  //* States
+  monitors: [],
+  students: [],
+  totalVotes: 0,
+  
+  //* Functions
+  addStudentsVote: () => {},
+  deleteStudentsVote: () => {},
+});

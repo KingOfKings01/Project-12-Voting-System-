@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 
 const DataProvider = ({ children }) => {
   const [monitors, setMonitors] = useState([
-    { id: 1, name: "Suresh", vote: 2, studentsList: [1, 2] },
-    { id: 2, name: "Deepak", vote: 1, studentsList: [3] },
-    { id: 3, name: "Abhik", vote: 1, studentsList: [4] },
+    { id: 1, name: "Suresh", vote: 2 },
+    { id: 2, name: "Deepak", vote: 1 },
+    { id: 3, name: "Abhik", vote: 1 },
   ]);
 
   const [students, setStudents] = useState([
@@ -19,6 +19,7 @@ const DataProvider = ({ children }) => {
   const [totalVotes, setTotalVotes] = useState(4);
 
   const addStudentsVote = (monitorId, studentName) => {
+
     const newStudent = {
       id: Date.now(),
       name: studentName,
@@ -33,7 +34,6 @@ const DataProvider = ({ children }) => {
           ? {
             ...monitor,
             vote: monitor.vote + 1,
-            studentsList: [...monitor.studentsList, newStudent.id],
           }
           : monitor
       )
@@ -53,7 +53,6 @@ const DataProvider = ({ children }) => {
           ? {
             ...monitor,
             vote: monitor.vote > 0 ? monitor.vote - 1 : 0, //Todo: To prevent -0
-            studentsList: monitor.studentsList.filter(id => id !== studentId),
           }
           : monitor
       )

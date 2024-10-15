@@ -17,7 +17,7 @@ export default function MonitorList() {
               <p>{monitor.vote} Vote{monitor.vote > 1 && "s"}</p>
             </div>
 
-            <StudentsList monitorId={monitor.id} studentsList={monitor.studentsList} />
+            <StudentsList monitorId={monitor.id} />
 
             <hr />
           </div>

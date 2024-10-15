@@ -3,29 +3,30 @@ import { dataContext } from "../../store/contexts";
 import PropTypes from "prop-types";
 import styles from "./studentsList.module.css"
 
-export default function StudentsList({ monitorId, studentsList }) {
-    
+export default function StudentsList({ monitorId }) {
   const { students, deleteStudentsVote } = useContext(dataContext);
 
+  const handleDelete = (studentId) => deleteStudentsVote(monitorId, studentId)
+
   return (
-    <div>
+    <>
       <ul className={styles.list}>
-        {studentsList.map(studentId => {
-          const student = students.find(s => s.id === studentId);
+        {students.map(student => {
+          if (student.monitorId !== monitorId) {
+            return
+          }
           return (
-            <li className={styles.listContent} key={studentId}>
+            <li className={styles.listContent} key={student.id}>
               <span className={styles.sameBold}>{student.name}</span>
-              
-              <button className={styles.delete} onClick={() => deleteStudentsVote(monitorId, studentId)}>Delete</button>
+              <button className={styles.delete} onClick={() => handleDelete(student.id)}>Delete</button>
             </li>
           );
         })}
       </ul>
-    </div>
+    </>
   );
 }
 
 StudentsList.propTypes = {
-    monitorId: PropTypes.number.isRequired,
-    studentsList: PropTypes.arrayOf(PropTypes.number).isRequired,
+  monitorId: PropTypes.number.isRequired
 }
